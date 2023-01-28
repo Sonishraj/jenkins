@@ -17,10 +17,8 @@ pipeline {
                 bat "mvn package -Dmaven.test.skip"
             }
         }
-		stage('zip') {
-			steps {
-				archiveArtifacts artifacts: 'target', followSymlinks: false, onlyIfSuccessful: true
-			}
-		}
+	stage('Compress') {
+        	sh 'Compress-Archive -LiteralPath ".\\target\\" -DestinationPath "target.zip"'
+   	}
     }
 }
