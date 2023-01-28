@@ -17,8 +17,11 @@ pipeline {
                 bat "mvn package -Dmaven.test.skip"
             }
         }
-	stage('Compress') {
-        	sh 'Compress-Archive -LiteralPath ".\\target\\" -DestinationPath "target.zip"'
+	stage('zip') {
+		steps {
+        		zip zipFile: 'target.zip', archive: false, dir: 'archive'
+                	archiveArtifacts artifacts: 'test.zip', fingerprint: true
+		}
    	}
     }
 }
