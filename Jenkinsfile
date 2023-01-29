@@ -17,11 +17,10 @@ pipeline {
                 bat "mvn package -Dmaven.test.skip"
             }
         }
-	stage('zip') {
-		steps {
-        		zip zipFile: 'target.zip', archive: false, dir: 'archive'
-                	archiveArtifacts artifacts: 'target.zip', fingerprint: true
-		}
-   	}
+	 stage('Create Zip File') {
+            steps {
+                sh 'zip -r target.zip .\target\'
+            }
+        }
     }
 }
