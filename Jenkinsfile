@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Create Zip') {
             steps {
-                bat "powershell Compress-Archive -LiteralPath '.\target\' -DestinationPath "target.zip""
+                bat "Compress-Archive -LiteralPath 'target' -DestinationPath "target.zip""
             }
         }
     }
