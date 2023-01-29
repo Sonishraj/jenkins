@@ -17,10 +17,5 @@ pipeline {
                 bat "mvn package -Dmaven.test.skip"
             }
         }
-	 stage('Create Zip File') {
-            steps {
-                sh 'zip -r target.zip .\target\'
-            }
-        }
     }
 }
