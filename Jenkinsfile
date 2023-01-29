@@ -20,7 +20,7 @@ pipeline {
 	stage('zip') {
 		steps {
         		zip zipFile: 'target.zip', archive: false, dir: 'archive'
-                	archiveArtifacts artifacts: 'test.zip', fingerprint: true
+                	archiveArtifacts artifacts: 'target.zip', fingerprint: true
 		}
    	}
     }
