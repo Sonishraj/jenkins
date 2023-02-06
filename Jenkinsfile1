@@ -19,13 +19,13 @@ pipeline {
         }
         stage('maven docker build') {
             steps {
-                sh 'docker build -t sonishraj/app .'
+                sh 'docker build -t sonishraj/app:${BUILD_NUMBER} .'
             }
         }
         stage('docker hub') {
             steps {
                 sh 'docker login -u sonishraj -p Varisu@Fdfs'
-                sh 'docker push sonishraj/app:latest'
+                sh 'docker push sonishraj/app:${BUILD_NUMBER}'
             }
         }
     }
