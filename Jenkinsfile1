@@ -17,9 +17,9 @@ pipeline {
                 sh "mvn package -Dmaven.test.skip"
             }
         }
-        stage('Create Zip') {
+        stage('maven docker build') {
             steps {
-                sh 'zip -r target.zip target'
+                sh 'docker build -t sonishraj/app'
             }
         }
     }
