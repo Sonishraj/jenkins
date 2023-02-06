@@ -19,7 +19,7 @@ pipeline {
         }
         stage('maven docker build') {
             steps {
-                sh 'docker build -t sonishraj/app'
+                sh 'docker build -t sonishraj/app .'
             }
         }
     }
