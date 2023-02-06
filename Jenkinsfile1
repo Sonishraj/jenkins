@@ -24,6 +24,7 @@ pipeline {
         }
         stage('docker hub') {
             steps {
+                sh 'docker login -u sonishraj -p Varisu@Fdfs'
                 sh 'docker push sonishraj/app:latest'
             }
         }
